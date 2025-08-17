@@ -19,10 +19,21 @@ const Header = () => {
             {
                 path === "/" && (
                     <div className='hidden md:flex space-x-6'>
-                        Link
+                        <Link href="features" className='text-white font-medium transition-all duration-300 hover:text-cyan-400 cursor-pointer'>
+                            Features
+                        </Link>
+                        <Link href="pricing" className='text-white font-medium transition-all duration-300 hover:text-cyan-400 cursor-pointer'>
+                            Pricing
+                        </Link>
+                        <Link href="contact" className='text-white font-medium transition-all duration-300 hover:text-cyan-400 cursor-pointer'>
+                            Contact
+                        </Link>
                     </div>
                 )
             }
+            <div className='flex items-center gap-3 ml-10 md:ml-20'>
+                auth
+            </div>
         </div>
     </header>
   )
