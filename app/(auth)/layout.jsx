@@ -1,7 +1,5 @@
-const layout = ({children}) => {
-  return (
-    <div>layout</div>
-  )
-}
+const AuthLayout = ({ children }) => {
+  return <div className="flex justify-center pt-48">{children}</div>;
+};
 
-export default layout
+export default AuthLayout;
