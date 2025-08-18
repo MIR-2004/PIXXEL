@@ -22,9 +22,13 @@ const buttonVariants = cva(
         link: 
           "text-primary underline-offset-4 hover:underline",
         primary:
-          "backdrop-blur-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white border-transparent hover:shadow-2xl hover:shadow-blue-500/25 hover:transform hover:scale-105", // custom
+          "group relative overflow-hidden rounded-full backdrop-blur-lg bg-gradient-to-r from-blue-500 via-purple-600 to-cyan-500 text-white border-transparent hover:shadow-2xl hover:shadow-blue-500/25 hover:scale-105",
         glass:
-          "backdrop-blur-lg bg-white/10 text-white border-white/20 hover:bg-white/20 hover:transform hover:scale-105", //custom
+          "group relative overflow-hidden rounded-full backdrop-blur-lg bg-white/10 text-white border-white/20 hover:bg-white/20 hover:scale-105",
+        hyper:
+          "group relative overflow-hidden rounded-full px-6 py-3 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.2)_inset] hover:scale-105 before:content-[''] before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.25),transparent_40%)] before:opacity-0 hover:before:opacity-100 after:content-[''] after:absolute after:inset-0 after:bg-[linear-gradient(110deg,transparent,rgba(255,255,255,0.2),transparent)] after:-translate-x-full hover:after:translate-x-full after:transition-transform after:duration-700",
+        glassGlow:
+          "group relative overflow-hidden rounded-full px-6 py-3 backdrop-blur-xl bg-white/10 border border-white/20 text-white hover:bg-white/15 hover:scale-105 shadow-[0_0_30px_-10px_rgba(6,182,212,0.6)] hover:shadow-[0_0_40px_-8px_rgba(99,102,241,0.8)]",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
