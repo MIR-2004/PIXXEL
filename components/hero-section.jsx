@@ -43,7 +43,7 @@ export default function HeroSection() {
 	}, [mouse.x, mouse.y])
 
 	return (
-		<section id="home" ref={setNode} className="relative pt-17 h-screen flex items-center justify-center bg-slate-950 text-white overflow-hidden">
+		<section id="home" ref={setNode} className="relative pt-17 h-screen flex items-center justify-center text-white overflow-hidden">
 			<div className="absolute inset-0 -z-10">
 				<div className="absolute -top-24 -left-24 w-[40rem] h-[40rem] bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-full blur-3xl opacity-20 animate-pulse" />
 				<div className="absolute -bottom-24 -right-24 w-[40rem] h-[40rem] bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full blur-3xl opacity-20 animate-pulse" />
@@ -65,12 +65,18 @@ export default function HeroSection() {
 				</p>
 
 				<div className="mt-10 flex items-center justify-center gap-4">
-					<a href="#pricing" className="interactive inline-flex items-center justify-center rounded-full bg-white/10 border border-white/20 backdrop-blur-lg hover:scale-105 hover:shadow-2xl transition-transform px-6 py-3 text-white">
+					<button 
+						onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+						className="interactive inline-flex items-center justify-center rounded-full bg-white/10 border border-white/20 backdrop-blur-lg hover:scale-105 hover:shadow-2xl transition-transform px-6 py-3 text-white"
+					>
 						Experience the Magic
-					</a>
-					<a href="#features" className="interactive inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 hover:scale-105 hover:shadow-2xl transition-transform px-6 py-3 text-white">
+					</button>
+					<button 
+						onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+						className="interactive inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 hover:scale-105 hover:shadow-2xl transition-transform px-6 py-3 text-white"
+					>
 						Explore Features
-					</a>
+					</button>
 				</div>
 
 				<motion.div

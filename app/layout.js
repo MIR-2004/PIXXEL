@@ -31,8 +31,8 @@ export default function RootLayout({ children }) {
             }}
           >
           <ConvexClientProvider>
-            <main className="bg-slate-900 min-h-screen text-white overflow-x-hidden">
-              <FloatingShapes />
+            <main className="bg-slate-950 min-h-screen text-white overflow-x-hidden">
+              <FloatingShapes/>
               <Toaster richColors />
               {children}
             </main>

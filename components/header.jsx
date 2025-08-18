@@ -64,13 +64,7 @@ const Header = () => {
         <div className={`backdrop-blur-xl rounded-full flex items-center justify-between gap-4 md:gap-8 transition-all duration-300 border ${isScrolled ? 'bg-black/30 border-white/20 px-6 py-2' : 'bg-white/10 border-white/20 px-8 py-3'}`}>
         {/* Logo */}
         <Link href="/" className="mr-10 md:mr-20">
-          <Image
-            src="/logo-text.png"
-            alt="Pixxel Logo"
-            className="min-w-24 object-cover"
-            width={96}
-            height={24}
-          />
+          <h1 className='text-4xl font-bold'>Nova</h1>
         </Link>
 
         {path === "/" && (

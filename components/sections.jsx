@@ -42,11 +42,7 @@ export function FeaturesSection() {
   ];
 
 	return (
-		<section id="features" className="relative py-24 bg-slate-950 text-white">
-			<div className="absolute inset-0 pointer-events-none">
-				<div className="absolute left-10 top-10 w-72 h-72 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-3xl opacity-20 animate-pulse" />
-				<div className="absolute right-10 bottom-10 w-96 h-96 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur-3xl opacity-20 animate-pulse" />
-			</div>
+		<section id="features" className="relative py-24 text-white">
 			<div className="max-w-6xl mx-auto px-6">
 				<h2 className="text-3xl md:text-5xl font-bold text-center bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
 					Why creators choose Pixxel
