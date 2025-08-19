@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Nova - Online Image Editing Tool
 
-## Getting Started
+## Overview
+Transform your images with professional-grade editing tools - all powered by cutting-edge web technology. This intuitive, browser-based photo editor delivers desktop-class functionality without downloads or installations, offering seamless image enhancement and creative transformation capabilities for photographers, designers, and content creators of all skill levels.
 
-First, run the development server:
+> Try the app - [Go to website]()
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
+- **Authentication**: Secure user registration and login using JWT.
+- **Role-Based Authorization**: Admin users have privileged access to manage products, orders, and users, while regular users can browse and purchase products.
+- **Product Management**: Add, edit, and delete products (admin access only).
+- **Cart System**: Add items to a cart and proceed to checkout.
+- **Order Management**: Place orders and view order history.
+- **Search and Filtering**: Search products and filter them by categories, price range, and more.
+- **Responsive Design**: Mobile-friendly user interface.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
+### Frontend
+- **Next.js**: For building a dynamic and responsive user interface.
+- 
+### Backend
+- **Node.js**: For server-side scripting.
+- **Express.js**: For building RESTful APIs.
+- **Convex**: As the Realtime database for persistent storage.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Other Tools
+- **Postman**: For API testing.
+- **Mongoose**: For MongoDB object modeling.
+- **Git**: For version control.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## System Architecture
+The application follows a **3-tier architecture**:
+1. **Frontend**: Handles user interactions and communicates with the backend via REST APIs.
+2. **Backend**: Implements business logic, authentication, and API endpoints.
+3. **Database**: Stores user information, product details, and orders.
 
-## Learn More
+## Installation and Setup
+### Prerequisites
+- Node.js
+- MongoDB
 
-To learn more about Next.js, take a look at the following resources:
+### Steps to Run
+#### Backend
+1. Clone the repository and navigate to the backend folder:
+   ```bash
+   git clone https://github.com/.git
+   cd Lavishta
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Configure environment variables in a `/backend/config/config.env` file:
+   ```env
+   DATABASE_URL=<Your_DB_URL>
+   BETTER_AUTH_SECRET=<Your_Better_Auth_Secret>
+   BETTER_AUTH_URL=<Your_Better_Auth_URL>
+   GITHUB_CLIENT_ID=<Your_Github_Client_Secret_Key>
+   GITHUB_CLIENT_SECRET=<Your_Github_Client_Secret_Key>
+   GOOGLE_CLIENT_ID=<Your_Google_Client_ID>
+   GOOGLE_CLIENT_SECRET=<Your_Google_Client_Secret_Key>
+   NEXT_APP_URL="http://localhost:3000"
+   ```
+4. Start the server:
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Access the Application
+- Open your browser and navigate to `http://localhost:3000`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Usage
+1. **User Registration/Login**: Create an account or log in to access features.
+2. **Browse Products**: Explore products and add them to your cart.
+3. **Admin Access**: Log in as an admin to manage products, orders, and users.
+4. **Place Orders**: Add items to your cart and proceed to checkout.
+5. **Order History**: View your past orders in the user dashboard.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contact
+- **Email**: mir.saif.ali2004@gmail.com
