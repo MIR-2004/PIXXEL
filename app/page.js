@@ -2,13 +2,13 @@
 
 import CustomCursor from "@/components/custom-cursor"
 import HeroSection from "@/components/hero-section"
-import { FeaturesSection } from "@/components/sections"
+import { FeaturesSection } from "@/components/feature-section"
 import dynamic from "next/dynamic"
 import ContactForm from "@/components/contact-form"
 import Header from "@/components/header"
 
 const StatsSection = dynamic(() => import("@/components/interactive-stats").then(m => m.default), { ssr: false })
-const PricingSection = dynamic(() => import("@/components/sections").then(m => m.PricingSection), { ssr: false })
+const PricingSection = dynamic(() => import("@/components/pricing-section").then(m => m.PricingSection), { ssr: false })
 
 export default function Home() {
   return (

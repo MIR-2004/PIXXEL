@@ -1,0 +1,49 @@
+import { mutation } from "./_generated/server";
+import { internal } from "./_generated/api";
+
+export const create = mutation({
+  args: {
+    title: v.string(),
+    originalImageUrl: v.optional(v.string()),
+    thumbnailUrl: v.optional(v.string()),
+    width: v.number(),
+    height: v.number(),
+    canvasState: v.optional(v.any()),
+  },
+  handler: async (ctx, args) => {
+    const user = await ctx.runQuery(internal.users.getCurrentUser);
+
+    if (user.plan === "free") {
+      const projectCount = await ctx.db
+        .query("projects")
+        .withIndex("by_user", (q) => q.eq("userId", user._id))
+        .collect();
+
+      if (projectCount.length >= 3) {
+        throw new Error(
+          "Free plan limited to 3 projects. Upgrade to Pro for unlimited Projects."
+        );
+      }
+    }
+
+    await ctx.db.insert("projects", {
+      title: args.title,
+      userId: user._id,
+      originalImageUrl: args.originalImageUrl,
+      currentImageUrl: args.currentImageUrl,
+      thumbnailUrl: args.thumbnailUrl,
+      width: args.width,
+      height: args.height,
+      canvasState: args.canvasState,
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
+    });
+
+    await ctx.db.patch(user._id, {
+        projectsUsed: user.projectsUsed +1,
+        lastActiveAt: Date.now()
+    });
+
+    return projectId; 
+  },
+});

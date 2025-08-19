@@ -47,7 +47,7 @@ export default function ContactForm() {
 			<button
 				type="submit"
 				disabled={!canSubmit || submitted}
-				className={`interactive w-full rounded-full px-6 py-3 transition-transform ${canSubmit ? "bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 hover:scale-105" : "bg-white/10 text-white/60"}`}
+				className={`interactive w-full rounded-full px-6 py-3 transition-transform ${canSubmit ? "bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 hover:scale-105 " : "bg-white/10 text-white/60"}`}
 			>
 				{submitted ? "Sending..." : "Unleash Power"}
 			</button>

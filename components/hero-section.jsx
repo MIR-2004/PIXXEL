@@ -43,7 +43,7 @@ export default function HeroSection() {
 	}, [mouse.x, mouse.y])
 
 	return (
-		<section id="home" ref={setNode} className="relative pt-17 h-screen flex items-center justify-center text-white overflow-hidden">
+		<section id="home" ref={setNode} className="relative pt-20 h-screen flex items-center justify-center text-white overflow-hidden">
 			<div className="absolute inset-0 -z-10">
 				<div className="absolute -top-24 -left-24 w-[40rem] h-[40rem] bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-full blur-3xl opacity-20 animate-pulse" />
 				<div className="absolute -bottom-24 -right-24 w-[40rem] h-[40rem] bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full blur-3xl opacity-20 animate-pulse" />
@@ -67,13 +67,13 @@ export default function HeroSection() {
 				<div className="mt-10 flex items-center justify-center gap-4">
 					<button 
 						onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-						className="interactive inline-flex items-center justify-center rounded-full bg-white/10 border border-white/20 backdrop-blur-lg hover:scale-105 hover:shadow-2xl transition-transform px-6 py-3 text-white"
+						className="interactive inline-flex items-center cursor-pointer justify-center rounded-full bg-white/10 border border-white/20 backdrop-blur-lg hover:scale-105 hover:shadow-2xl transition-transform px-6 py-3 text-white"
 					>
 						Experience the Magic
 					</button>
 					<button 
 						onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-						className="interactive inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 hover:scale-105 hover:shadow-2xl transition-transform px-6 py-3 text-white"
+						className="interactive inline-flex cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 hover:scale-105 hover:shadow-2xl transition-transform px-6 py-3 text-white"
 					>
 						Explore Features
 					</button>
@@ -94,7 +94,7 @@ export default function HeroSection() {
 					>
 						<motion.div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10" animate={{ opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 4, repeat: Infinity }} />
 						<div className="absolute inset-0 grid grid-cols-3 gap-2 p-4">
-							<div className="rounded-lg bg-white/5 border border-white/10" />
+							<div className="rounded-lg bg-white/5 border border-white/10"/>
 							<div className="rounded-lg bg-white/5 border border-white/10" />
 							<div className="rounded-lg bg-white/5 border border-white/10" />
 							<div className="col-span-2 rounded-lg bg-white/5 border border-white/10" />

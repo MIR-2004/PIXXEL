@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { useAnimatedCounter } from '../hooks/useAnimatedCounter';
 
-const InteractiveStats = () => {
+const StatsSection = () => {
   const { ref, isVisible } = useIntersectionObserver({ threshold: 0.3 });
 
   const stats = [
@@ -92,4 +92,4 @@ const InteractiveStats = () => {
   );
 };
 
-export default InteractiveStats;
+export default StatsSection;
