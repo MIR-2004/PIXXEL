@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "convex/react"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useConvexQuery = (query, ...args) => {
     const result = useQuery(query, ...args);
