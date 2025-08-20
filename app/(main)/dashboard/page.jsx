@@ -17,7 +17,7 @@ const Dashboard = () => {
   console.log(projects);
 
   return (
-    <div className='min-h-screen pb-16'>
+    <div className='min-h-screen pt-8 pb-16'>
       <div className='container mx-auto px-6'>
         <div className='flex items-center justify-between mb-8'>
           <div >
