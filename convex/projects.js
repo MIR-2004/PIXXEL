@@ -6,6 +6,7 @@ export const create = mutation({
   args: {
     title: v.string(),
     originalImageUrl: v.optional(v.string()),
+    currentImageUrl: v.optional(v.string()),
     thumbnailUrl: v.optional(v.string()),
     width: v.number(),
     height: v.number(),
@@ -27,7 +28,7 @@ export const create = mutation({
       }
     }
 
-    await ctx.db.insert("projects", {
+    const projectId =  ctx.db.insert("projects", {
       title: args.title,
       userId: user._id,
       originalImageUrl: args.originalImageUrl,

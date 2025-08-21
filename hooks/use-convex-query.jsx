@@ -1,5 +1,6 @@
 import { useMutation, useQuery } from "convex/react"
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export const useConvexQuery = (query, ...args) => {
     const result = useQuery(query, ...args);
@@ -49,9 +50,9 @@ export const useConvexMutation = (mutation) => {
         return response;
 
     } catch (error) {
-        setError(err);
-        toast.error(err.message);
-        throw err;
+        setError(error);
+        toast.error(error.message);
+        throw error;
     }finally{
         setIsLoading(false);
     }

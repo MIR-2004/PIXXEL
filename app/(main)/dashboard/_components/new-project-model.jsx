@@ -18,6 +18,8 @@ import { useDropzone } from 'react-dropzone';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
+import { useRouter } from 'next/navigation';
+import UpgradeModal from '@/components/upgrade-modal';
 
 const NewProjectModal = ({ isOpen, onClose }) => {
 
@@ -26,6 +28,8 @@ const NewProjectModal = ({ isOpen, onClose }) => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [previewUrl, setPreviewUrl] = useState(null)
     const [showUpgradeModal, setShowUpgradeModal] = useState(false)
+
+    const router = useRouter();
 
     const handleClose = () => {
         setSelectedFile(null);
@@ -64,13 +68,13 @@ const NewProjectModal = ({ isOpen, onClose }) => {
         maxSize: 20 * 1024 * 1024,
     })
 
-    const handleCreateProject = async() => { 
-        if(!canCreate){
+    const handleCreateProject = async () => {
+        if (!canCreate) {
             setShowUpgradeModal(true);
             return;
         }
 
-        if(!selectedFile || !projectTitle.trim()){
+        if (!selectedFile || !projectTitle.trim()) {
             toast.error("Please select an image and enter a project title.")
             return;
         }
@@ -78,9 +82,43 @@ const NewProjectModal = ({ isOpen, onClose }) => {
         setIsUploading(true);
 
         try {
-            
+            const formData = new FormData();
+            formData.append("file", selectedFile);
+            formData.append("fileName", selectedFile.name);
+
+
+            const uploadResponse = await fetch("/api/imagekit/upload", {
+                method: "POST",
+                body: formData,
+            });
+
+            const uploadData = await uploadResponse.json();
+
+            if (!uploadData.success) {
+                throw new Error(uploadData.error || "Failed to upload image")
+            }
+
+            const projectId = await createProject({
+                title: projectTitle.trim(),
+                originalImageUrl: uploadData.url,
+                currentImageUrl: uploadData.url,
+                thumbnailUrl: uploadData.thumbnailUrl,
+                width: uploadData.width || 800,
+                height: uploadData.height || 600,
+                canvasState: null,
+            });
+
+            toast.success("Project created successfully");
+
+            router.push(`/editor/${projectId}`)
+
         } catch (error) {
-            
+            console.error("Error creating project:", error);
+            toast.error(
+                error.message || "Failed to create project. Please try again."
+            );
+        }finally{
+            setIsUploading(false)
         }
     };
 
@@ -199,6 +237,8 @@ const NewProjectModal = ({ isOpen, onClose }) => {
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
+
+            <UpgradeModal isOpen={showUpgradeModal} onClose={() => setShowUpgradeModal(false)} restrictedTool="projects" reasom="Free plan is limited to 3 projects. Upgrade to Pro for unlimited projects and access to all AI editing tools."/>
         </>
     )
 }

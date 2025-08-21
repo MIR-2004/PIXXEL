@@ -3,12 +3,11 @@
 import { useParams } from 'next/navigation'
 import React from 'react'
 
-const Editor = async () => {
+const Editor = () => {
 
-    const { projectId } = await useParams();
   return (
     <div>
-        Editor: {projectId}
+        Editor: 
     </div>
   )
 }
