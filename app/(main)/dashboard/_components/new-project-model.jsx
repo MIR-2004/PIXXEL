@@ -20,6 +20,7 @@ import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 import UpgradeModal from '@/components/upgrade-modal';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const NewProjectModal = ({ isOpen, onClose }) => {
 
@@ -69,7 +70,7 @@ const NewProjectModal = ({ isOpen, onClose }) => {
     })
 
     const handleCreateProject = async () => {
-        if (!canCreate) {
+        if (currentProjectCount >= 3) {
             setShowUpgradeModal(true);
             return;
         }
@@ -238,7 +239,7 @@ const NewProjectModal = ({ isOpen, onClose }) => {
                 </DialogContent>
             </Dialog>
 
-            <UpgradeModal isOpen={showUpgradeModal} onClose={() => setShowUpgradeModal(false)} restrictedTool="projects" reasom="Free plan is limited to 3 projects. Upgrade to Pro for unlimited projects and access to all AI editing tools."/>
+            <UpgradeModal isOpen={showUpgradeModal} onClose={() => setShowUpgradeModal(false)} restrictedTool="projects" reason="Free plan is limited to 3 projects. Upgrade to Pro for unlimited projects and access to all AI editing tools."/>
         </>
     )
 }

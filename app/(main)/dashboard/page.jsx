@@ -7,6 +7,7 @@ import { Plus, Sparkle, Sparkles } from 'lucide-react'
 import React, { useState } from 'react'
 import { BarLoader } from 'react-spinners'
 import NewProjectModal from './_components/new-project-model'
+import ProjectGrid from './_components/project-grid'
 
 const Dashboard = () => {
 
@@ -34,21 +35,21 @@ const Dashboard = () => {
         {
           isLoading ? (
             <BarLoader width={"100%"} color='white' />
-          ) : projects && projects.length > 0 ?
-            (<></>) :
-            (
+          ) : projects && projects.length > 0 ? (
+           <ProjectGrid projects={projects}/>
+          ) : (
               <div className='flex flex-col items-center justify-center py-20 text-center'>
                 <h3 className='text-2xl font-semibold text-white mb-3'>Create Your First Project</h3>
                 <p className='text-white/70 mb-8 max-w-md'>Upload an image to start editing with our powerful AI tools</p>
                 <Button onClick={() => setShowNewProjectModel(true)} variant="primary" size="xl" className="gap-2">
                   <Sparkles className='h-5 w-5' />
-                    New Project
+                  New Project
                 </Button>
               </div>
             )
         }
 
-        <NewProjectModal isOpen={showNewProjectModel} onClose={() => setShowNewProjectModel(false)}/>
+        <NewProjectModal isOpen={showNewProjectModel} onClose={() => setShowNewProjectModel(false)} />
       </div>
     </div>
   )

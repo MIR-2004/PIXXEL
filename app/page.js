@@ -25,7 +25,7 @@ export default function Home() {
           <ContactForm />
         </div>
       </section>
-      <footer className="py-10 text-center text-white/60">© {new Date().getFullYear()} Pixxel</footer>
+      <footer className="py-10 text-center text-white/60">© {new Date().getFullYear()} Nova</footer>
     </main>
   );
 }
